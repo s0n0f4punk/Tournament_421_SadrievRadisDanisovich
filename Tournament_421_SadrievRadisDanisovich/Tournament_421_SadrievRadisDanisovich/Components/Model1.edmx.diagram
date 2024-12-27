@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9dc0897fb5d34725bb46c6791e1d8e78" Name="Diagram1" ZoomLevel="45">
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.Achievments" Width="1.5" PointX="8.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.Game" Width="1.5" PointX="6" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.Match" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.MembersCrew" Width="1.5" PointX="10.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.PlayingRole" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.Rating" Width="1.5" PointX="8.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.RequestStatus" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.Role" Width="1.5" PointX="3.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.TornamentMembers" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.Tournament" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.TournamentCategory" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.TournamentCriterion" Width="1.875" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TournamentDB_421_SadrievRadisDanisovichModel.User" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_Achievments_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_Rating_Game" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_Match_TornamentMembers1" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_Match_TornamentMembers2" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_Match_TornamentMembers3" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_Match_Tournament" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_MembersCrew_TornamentMembers" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_User_PlayingRole" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_Rating_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_TornamentMembers_RequestStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_TornamentMembers_Tournament" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_TornamentMembers_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_Tournament_TournamentCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_Tournament_TournamentCriterion" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
