@@ -18,6 +18,7 @@ namespace Tournament_421_SadrievRadisDanisovich.Components
         public Game()
         {
             this.Rating = new HashSet<Rating>();
+            this.Tournament = new HashSet<Tournament>();
         }
     
         public int Id { get; set; }
@@ -25,5 +26,7 @@ namespace Tournament_421_SadrievRadisDanisovich.Components
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rating> Rating { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tournament> Tournament { get; set; }
     }
 }

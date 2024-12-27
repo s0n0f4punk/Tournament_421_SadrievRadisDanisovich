@@ -17,21 +17,22 @@ using Tournament_421_SadrievRadisDanisovich.Components;
 namespace Tournament_421_SadrievRadisDanisovich.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для TournamentRegistration.xaml
+    /// Логика взаимодействия для TournamentList.xaml
     /// </summary>
-    public partial class TournamentRegistration : Page
+    public partial class TournamentList : Page
     {
         public List<Tournament> tournament;
-        public TournamentRegistration()
+        public TournamentList()
         {
             InitializeComponent();
+            if (App.currentUser.Id_Role != 3) AddTour.Visibility = Visibility.Collapsed;
             tournament = App.db.Tournament.ToList();
-            TournamentList.ItemsSource = tournament;
+            TournamentLV.ItemsSource = tournament;
         }
 
         private void AddTour_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddTournamentPage());
         }
     }
 }

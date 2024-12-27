@@ -10,8 +10,39 @@
 
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5">
+                <TextBlock>Наименование</TextBlock>
+                <TextBox x:Name="NameTb" Margin="5 0" Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5">
+                <TextBlock>Игра</TextBlock>
+                <ComboBox x:Name="GameCbx" Margin="5 0" Width="200"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5">
+                <TextBlock>Дата начала</TextBlock>
+                <DatePicker x:Name="StartDate" Margin="5 0" Width="200"></DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5">
+                <TextBlock>Время начала</TextBlock>
+                <TextBox x:Name="TimeStartHour" Margin="5 0 2 0" Width="30"></TextBox>
+                <TextBlock>:</TextBlock>
+                <TextBox x:Name="TimeStartMinute" Margin="2 0 5 0" Width="30"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5">
+                <TextBlock>Формат</TextBlock>
+                <ComboBox x:Name="FormatCbx" Margin="5 0" Width="200"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5">
+                <TextBlock>Призовой фонд</TextBlock>
+                <TextBox x:Name="PrizeTb" Margin="5 0" Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 5">
+                <TextBlock>Минимальный ранг</TextBlock>
+                <TextBox x:Name="MinRangeTb" Margin="5 0" Width="200"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5">
+                <Button x:Name="SaveBtn" Margin="5 0" Click="SaveBtn_Click">Сохранить</Button>
+                <Button x:Name="BackBtn" Margin="5 0" Click="BackBtn_Click">Назад</Button>
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -37,7 +37,7 @@ namespace Tournament_421_SadrievRadisDanisovich.Components
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MembersCrew> MembersCrew { get; set; }
         public virtual RequestStatus RequestStatus { get; set; }
-        public virtual Tournament Tournament { get; set; }
         public virtual User User { get; set; }
+        public virtual Tournament Tournament { get; set; }
     }
 }

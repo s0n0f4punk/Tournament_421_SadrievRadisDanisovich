@@ -35,9 +35,8 @@ namespace Tournament_421_SadrievRadisDanisovich.Components
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TornamentMembers> TornamentMembers { get; set; }
-        public virtual DbSet<Tournament> Tournament { get; set; }
         public virtual DbSet<TournamentCategory> TournamentCategory { get; set; }
-        public virtual DbSet<TournamentCriterion> TournamentCriterion { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Tournament> Tournament { get; set; }
     }
 }

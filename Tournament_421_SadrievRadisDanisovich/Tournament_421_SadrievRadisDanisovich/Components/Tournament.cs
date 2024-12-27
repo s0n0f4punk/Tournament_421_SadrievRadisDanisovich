@@ -28,12 +28,13 @@ namespace Tournament_421_SadrievRadisDanisovich.Components
         public Nullable<decimal> MinRange { get; set; }
         public Nullable<int> Id_Category { get; set; }
         public Nullable<decimal> Prize { get; set; }
+        public Nullable<int> Id_Game { get; set; }
     
+        public virtual Game Game { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Match> Match { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TornamentMembers> TornamentMembers { get; set; }
         public virtual TournamentCategory TournamentCategory { get; set; }
-        public virtual TournamentCriterion TournamentCriterion { get; set; }
     }
 }
