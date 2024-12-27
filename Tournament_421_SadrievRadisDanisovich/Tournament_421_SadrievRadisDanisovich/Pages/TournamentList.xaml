@@ -16,7 +16,7 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button x:Name="AddTour" Click="AddTour_Click">Добавить турнир</Button>
-            <Button x:Name="AddTour" Click="AddTour_Click">Подать заявку</Button>
+            <Button x:Name="AddRequest" Click="AddRequest_Click">Подать заявку</Button>
         </StackPanel>
 
         <ListView x:Name="TournamentLV" Grid.Row="1">

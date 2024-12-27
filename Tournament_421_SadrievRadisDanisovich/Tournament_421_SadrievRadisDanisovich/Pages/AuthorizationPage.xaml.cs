@@ -30,7 +30,7 @@ namespace Tournament_421_SadrievRadisDanisovich.Pages
             if (App.db.User.Where(x => (x.Email == LoginTb.Text || x.Phone == LoginTb.Text) && x.Password == PassTb.Password).Any())
             {
                 App.currentUser = App.db.User.Where(x => (x.Email == LoginTb.Text || x.Phone == LoginTb.Text) && x.Password == PassTb.Password).FirstOrDefault();
-                if (App.currentUser.Id_Role == 3) NavigationService.Navigate(new TournamentList());
+                NavigationService.Navigate(new TournamentList());
             }
             else MessageBox.Show("Неправильный логин или пароль");
         }

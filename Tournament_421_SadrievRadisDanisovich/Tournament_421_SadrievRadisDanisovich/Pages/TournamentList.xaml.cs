@@ -26,6 +26,7 @@ namespace Tournament_421_SadrievRadisDanisovich.Pages
         {
             InitializeComponent();
             if (App.currentUser.Id_Role != 3) AddTour.Visibility = Visibility.Collapsed;
+            if (App.currentUser.Id_Role != 1) AddRequest.Visibility = Visibility.Collapsed;
             tournament = App.db.Tournament.ToList();
             TournamentLV.ItemsSource = tournament;
         }
@@ -33,6 +34,14 @@ namespace Tournament_421_SadrievRadisDanisovich.Pages
         private void AddTour_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddTournamentPage());
+        }
+
+        private void AddRequest_Click(object sender, RoutedEventArgs e)
+        {
+            if (TournamentLV.SelectedItem != null) 
+            {
+                NavigationService.Navigate(new AddRequestPage(TournamentLV.SelectedItem as Tournament));
+            }
         }
     }
 }
