@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tournament_421_SadrievRadisDanisovich.Pages;
 
 namespace Tournament_421_SadrievRadisDanisovich
 {
@@ -23,6 +24,7 @@ namespace Tournament_421_SadrievRadisDanisovich
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Navigate(new AuthorizationPage());
         }
     }
 }

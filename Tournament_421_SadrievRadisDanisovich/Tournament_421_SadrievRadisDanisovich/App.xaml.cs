@@ -15,5 +15,6 @@ namespace Tournament_421_SadrievRadisDanisovich
     public partial class App : Application
     {
         public static TournamentDB_421_SadrievRadisDanisovichEntities db = new TournamentDB_421_SadrievRadisDanisovichEntities();
+        public static User currentUser;
     }
 }

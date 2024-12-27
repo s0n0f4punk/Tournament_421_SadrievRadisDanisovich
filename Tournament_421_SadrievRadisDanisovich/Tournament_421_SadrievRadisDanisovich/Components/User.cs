@@ -32,6 +32,7 @@ namespace Tournament_421_SadrievRadisDanisovich.Components
         public string Password { get; set; }
         public Nullable<int> Id_Role { get; set; }
         public Nullable<bool> IsCrew { get; set; }
+        public string CrewName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Achievments> Achievments { get; set; }

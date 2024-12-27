@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище TournamentDB_421_SadrievRadisDanisovichModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище TournamentDB_421_SadrievRadisDanisovichModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Achievments">
           <Key>
             <PropertyRef Name="Id" />
@@ -129,6 +129,7 @@
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
           <Property Name="Id_Role" Type="int" />
           <Property Name="IsCrew" Type="bit" />
+          <Property Name="CrewName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Achievments_User">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
@@ -386,8 +387,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TournamentDB_421_SadrievRadisDanisovichModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -398,7 +398,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name_Achievment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Id_Competitor" Type="Int32" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Achievments_User" FromRole="Achievments" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="TournamentDB_421_SadrievRadisDanisovichModel.FK_Achievments_User" FromRole="Achievments" ToRole="User" />
         </EntityType>
         <EntityType Name="Game">
           <Key>
@@ -438,7 +438,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="Self.FK_User_PlayingRole" FromRole="PlayingRole" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="TournamentDB_421_SadrievRadisDanisovichModel.FK_User_PlayingRole" FromRole="PlayingRole" ToRole="User" />
         </EntityType>
         <EntityType Name="Rating">
           <Key>
@@ -449,7 +449,7 @@
           <Property Name="Id_Game" Type="Int32" />
           <Property Name="Amount" Type="Decimal" Precision="5" Scale="2" />
           <NavigationProperty Name="Game" Relationship="Self.FK_Rating_Game" FromRole="Rating" ToRole="Game" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Rating_User" FromRole="Rating" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="TournamentDB_421_SadrievRadisDanisovichModel.FK_Rating_User" FromRole="Rating" ToRole="User" />
         </EntityType>
         <EntityType Name="RequestStatus">
           <Key>
@@ -465,7 +465,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Role1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="TournamentDB_421_SadrievRadisDanisovichModel.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -491,7 +491,7 @@
           <NavigationProperty Name="MembersCrew" Relationship="Self.FK_MembersCrew_TornamentMembers" FromRole="TornamentMembers" ToRole="MembersCrew" />
           <NavigationProperty Name="RequestStatus" Relationship="Self.FK_TornamentMembers_RequestStatus" FromRole="TornamentMembers" ToRole="RequestStatus" />
           <NavigationProperty Name="Tournament" Relationship="Self.FK_TornamentMembers_Tournament" FromRole="TornamentMembers" ToRole="Tournament" />
-          <NavigationProperty Name="User" Relationship="Self.FK_TornamentMembers_User" FromRole="TornamentMembers" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="TournamentDB_421_SadrievRadisDanisovichModel.FK_TornamentMembers_User" FromRole="TornamentMembers" ToRole="User" />
         </EntityType>
         <EntityType Name="Tournament">
           <Key>
@@ -526,38 +526,6 @@
           <Property Name="Id_Tournament" Type="Int32" />
           <NavigationProperty Name="Tournament" Relationship="Self.FK_Tournament_TournamentCriterion" FromRole="TournamentCriterion" ToRole="Tournament" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Id_PlayingRole" Type="Int32" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Id_Role" Type="Int32" />
-          <Property Name="IsCrew" Type="Boolean" />
-          <NavigationProperty Name="Achievments" Relationship="Self.FK_Achievments_User" FromRole="User" ToRole="Achievments" />
-          <NavigationProperty Name="PlayingRole" Relationship="Self.FK_User_PlayingRole" FromRole="User" ToRole="PlayingRole" />
-          <NavigationProperty Name="Rating" Relationship="Self.FK_Rating_User" FromRole="User" ToRole="Rating" />
-          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
-          <NavigationProperty Name="TornamentMembers" Relationship="Self.FK_TornamentMembers_User" FromRole="User" ToRole="TornamentMembers" />
-        </EntityType>
-        <Association Name="FK_Achievments_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Achievments" Type="Self.Achievments" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Achievments">
-              <PropertyRef Name="Id_Competitor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Rating_Game">
           <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
           <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
@@ -630,30 +598,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_PlayingRole">
-          <End Role="PlayingRole" Type="Self.PlayingRole" Multiplicity="0..1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PlayingRole">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="Id_PlayingRole" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Rating_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Rating">
-              <PropertyRef Name="Id_Competitor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TornamentMembers_RequestStatus">
           <End Role="RequestStatus" Type="Self.RequestStatus" Multiplicity="0..1" />
           <End Role="TornamentMembers" Type="Self.TornamentMembers" Multiplicity="*" />
@@ -666,18 +610,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_User_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="Id_Role" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TornamentMembers_Tournament">
           <End Role="Tournament" Type="Self.Tournament" Multiplicity="0..1" />
           <End Role="TornamentMembers" Type="Self.TornamentMembers" Multiplicity="*" />
@@ -687,18 +619,6 @@
             </Principal>
             <Dependent Role="TornamentMembers">
               <PropertyRef Name="Id_Tournament" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TornamentMembers_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="TornamentMembers" Type="Self.TornamentMembers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TornamentMembers">
-              <PropertyRef Name="Id_Competitor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -740,11 +660,6 @@
           <EntitySet Name="Tournament" EntityType="Self.Tournament" />
           <EntitySet Name="TournamentCategory" EntityType="Self.TournamentCategory" />
           <EntitySet Name="TournamentCriterion" EntityType="Self.TournamentCriterion" />
-          <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK_Achievments_User" Association="Self.FK_Achievments_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Achievments" EntitySet="Achievments" />
-          </AssociationSet>
           <AssociationSet Name="FK_Rating_Game" Association="Self.FK_Rating_Game">
             <End Role="Game" EntitySet="Game" />
             <End Role="Rating" EntitySet="Rating" />
@@ -769,28 +684,12 @@
             <End Role="TornamentMembers" EntitySet="TornamentMembers" />
             <End Role="MembersCrew" EntitySet="MembersCrew" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_PlayingRole" Association="Self.FK_User_PlayingRole">
-            <End Role="PlayingRole" EntitySet="PlayingRole" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Rating_User" Association="Self.FK_Rating_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Rating" EntitySet="Rating" />
-          </AssociationSet>
           <AssociationSet Name="FK_TornamentMembers_RequestStatus" Association="Self.FK_TornamentMembers_RequestStatus">
             <End Role="RequestStatus" EntitySet="RequestStatus" />
             <End Role="TornamentMembers" EntitySet="TornamentMembers" />
           </AssociationSet>
-          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
           <AssociationSet Name="FK_TornamentMembers_Tournament" Association="Self.FK_TornamentMembers_Tournament">
             <End Role="Tournament" EntitySet="Tournament" />
-            <End Role="TornamentMembers" EntitySet="TornamentMembers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TornamentMembers_User" Association="Self.FK_TornamentMembers_User">
-            <End Role="User" EntitySet="User" />
             <End Role="TornamentMembers" EntitySet="TornamentMembers" />
           </AssociationSet>
           <AssociationSet Name="FK_Tournament_TournamentCategory" Association="Self.FK_Tournament_TournamentCategory">
@@ -801,8 +700,110 @@
             <End Role="TournamentCriterion" EntitySet="TournamentCriterion" />
             <End Role="Tournament" EntitySet="Tournament" />
           </AssociationSet>
-        </EntityContainer>
-      </Schema>
+          <EntitySet Name="User" EntityType="TournamentDB_421_SadrievRadisDanisovichModel.User" />
+          <AssociationSet Name="FK_Achievments_User" Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_Achievments_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Achievments" EntitySet="Achievments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_PlayingRole" Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_User_PlayingRole">
+            <End Role="PlayingRole" EntitySet="PlayingRole" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_User" Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_Rating_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TornamentMembers_User" Association="TournamentDB_421_SadrievRadisDanisovichModel.FK_TornamentMembers_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="TornamentMembers" EntitySet="TornamentMembers" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_PlayingRole" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Role" Type="Int32" />
+          <Property Name="IsCrew" Type="Boolean" />
+          <Property Name="CrewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Achievments" Relationship="TournamentDB_421_SadrievRadisDanisovichModel.FK_Achievments_User" FromRole="User" ToRole="Achievments" />
+          <NavigationProperty Name="PlayingRole" Relationship="TournamentDB_421_SadrievRadisDanisovichModel.FK_User_PlayingRole" FromRole="User" ToRole="PlayingRole" />
+          <NavigationProperty Name="Rating" Relationship="TournamentDB_421_SadrievRadisDanisovichModel.FK_Rating_User" FromRole="User" ToRole="Rating" />
+          <NavigationProperty Name="Role" Relationship="TournamentDB_421_SadrievRadisDanisovichModel.FK_User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="TornamentMembers" Relationship="TournamentDB_421_SadrievRadisDanisovichModel.FK_TornamentMembers_User" FromRole="User" ToRole="TornamentMembers" />
+        </EntityType>
+        <Association Name="FK_Achievments_User">
+          <End Type="TournamentDB_421_SadrievRadisDanisovichModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="TournamentDB_421_SadrievRadisDanisovichModel.Achievments" Role="Achievments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Achievments">
+              <PropertyRef Name="Id_Competitor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_PlayingRole">
+          <End Type="TournamentDB_421_SadrievRadisDanisovichModel.PlayingRole" Role="PlayingRole" Multiplicity="0..1" />
+          <End Type="TournamentDB_421_SadrievRadisDanisovichModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlayingRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Id_PlayingRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_User">
+          <End Type="TournamentDB_421_SadrievRadisDanisovichModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="TournamentDB_421_SadrievRadisDanisovichModel.Rating" Role="Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="Id_Competitor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Type="TournamentDB_421_SadrievRadisDanisovichModel.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="TournamentDB_421_SadrievRadisDanisovichModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="Id_Role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TornamentMembers_User">
+          <End Type="TournamentDB_421_SadrievRadisDanisovichModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="TournamentDB_421_SadrievRadisDanisovichModel.TornamentMembers" Role="TornamentMembers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TornamentMembers">
+              <PropertyRef Name="Id_Competitor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -934,16 +935,17 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="TournamentDB_421_SadrievRadisDanisovichModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Id_PlayingRole" ColumnName="Id_PlayingRole" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Id_Role" ColumnName="Id_Role" />
+                <ScalarProperty Name="CrewName" ColumnName="CrewName" />
                 <ScalarProperty Name="IsCrew" ColumnName="IsCrew" />
+                <ScalarProperty Name="Id_Role" ColumnName="Id_Role" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Id_PlayingRole" ColumnName="Id_PlayingRole" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
